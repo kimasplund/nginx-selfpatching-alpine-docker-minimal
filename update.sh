@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 # Update package repository
