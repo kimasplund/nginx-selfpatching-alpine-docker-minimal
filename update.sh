@@ -28,3 +28,8 @@ for pkg in $(apk info --installed); do
     fi
   fi
 done
+# Check if Nginx is running
+if ! pgrep -x "nginx" > /dev/null; then
+  # Start Nginx
+  nginx
+fi
