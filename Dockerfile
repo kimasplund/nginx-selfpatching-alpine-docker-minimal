@@ -13,9 +13,6 @@ RUN chmod +x /usr/local/bin/update.sh
 # Schedule update script to run every 4 hours using cron
 RUN crontab -l | { cat; echo "0 */4 * * * /usr/local/bin/update.sh"; } | crontab -
 
-# Set update.sh as the entrypoint
-#ENTRYPOINT ["/usr/local/bin/update.sh"]
-
 # Expose Nginx port
 EXPOSE 80
 
