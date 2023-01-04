@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Install Nginx and required packages
-RUN apk add --no-cache nginx
+RUN apk add --no-cache nginx cron
 
 # Add Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -18,3 +18,5 @@ EXPOSE 80
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
+
+RUN crontab -l | { cat; echo "@reboot /usr/local/bin/update.sh"; } | crontab -
