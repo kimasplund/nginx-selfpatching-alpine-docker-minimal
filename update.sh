@@ -7,9 +7,9 @@ apk update
 apk upgrade
 
 # Check for updated packages
-if [ $(apk info --upgraded | wc -l) -gt 0 ]; then
+if [ $(apk info --installed | grep -vF "$(apk info --installed)" | wc -l) -gt 0 ]; then
   # Write log entry
-  echo "Upgraded packages: $(apk info --upgraded)" | tee -a /var/log/self-upgrade.log
+  echo "Upgraded packages: $(apk info --installed | grep -vF "$(apk info --installed)")" | tee -a /var/log/self-upgrade.log
 fi
 
 # Check for updated services and restart them
