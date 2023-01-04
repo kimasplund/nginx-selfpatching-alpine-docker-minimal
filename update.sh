@@ -28,4 +28,3 @@ for pkg in $(apk info --installed); do
     fi
   fi
 done
-
