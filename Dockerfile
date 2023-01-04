@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Install Nginx and required packages
-RUN apk add --no-cache nginx cron
+RUN apk add --no-cache nginx
 
 # Add Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
